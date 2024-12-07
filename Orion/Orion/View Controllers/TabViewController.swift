@@ -3,14 +3,16 @@ import WebKit
 
 class TabViewController: UIViewController {
     @IBOutlet weak var webView: WKWebView!
-    var rawURLValue: String?
+    var page: TabPage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard let value = rawURLValue else { return }
+        guard let url = page?.url else { return }
         
-        webView.load(URLRequest(url: URL(string: value)!))
+        let request = URLRequest(url: url)
+        
+        webView.load(request)
     }
 }
 
