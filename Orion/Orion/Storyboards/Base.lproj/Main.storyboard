@@ -28,20 +28,50 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a6Q-tR-H2y">
+                                <rect key="frame" x="10" y="744" width="75" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="75" id="81s-kE-w1N"/>
+                                    <constraint firstAttribute="height" constant="25" id="Sch-dV-rs4"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Left"/>
+                                <connections>
+                                    <action selector="goLeft:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5ii-Vh-hqo"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5qh-A5-5J2">
+                                <rect key="frame" x="308" y="744" width="75" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="MzS-mw-5BN"/>
+                                    <constraint firstAttribute="width" constant="75" id="aJg-79-Cvp"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Right"/>
+                                <connections>
+                                    <action selector="goRight:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bHh-Ms-W2s"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBlueColor"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5qh-A5-5J2" secondAttribute="trailing" constant="10" id="DVk-m5-j7M"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="T1z-8T-Eoy" secondAttribute="bottom" constant="5" id="LaQ-mT-5gY"/>
                             <constraint firstItem="aII-vW-x0g" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="OSm-21-M2C"/>
                             <constraint firstItem="aII-vW-x0g" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Tan-gY-SPT"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="T1z-8T-Eoy" secondAttribute="trailing" constant="20" id="Zia-l9-wBB"/>
                             <constraint firstItem="aII-vW-x0g" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="aR9-Tt-aVy"/>
+                            <constraint firstItem="T1z-8T-Eoy" firstAttribute="top" secondItem="a6Q-tR-H2y" secondAttribute="bottom" constant="10" id="akd-Oh-ssr"/>
+                            <constraint firstItem="a6Q-tR-H2y" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="fWa-ha-SQd"/>
                             <constraint firstItem="T1z-8T-Eoy" firstAttribute="top" secondItem="aII-vW-x0g" secondAttribute="bottom" constant="5" id="fxD-nZ-dvl"/>
+                            <constraint firstItem="T1z-8T-Eoy" firstAttribute="top" secondItem="5qh-A5-5J2" secondAttribute="bottom" constant="10" id="jfv-CE-F5d"/>
                             <constraint firstItem="T1z-8T-Eoy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="sLt-jh-hAL"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="left" destination="a6Q-tR-H2y" id="wKc-eO-SNM"/>
+                        <outlet property="right" destination="5qh-A5-5J2" id="lvp-9o-mtM"/>
                         <outlet property="webView" destination="aII-vW-x0g" id="KM3-IF-Dib"/>
                     </connections>
                 </viewController>
