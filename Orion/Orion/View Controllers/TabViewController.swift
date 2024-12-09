@@ -2,14 +2,12 @@ import UIKit
 import WebKit
 
 protocol PageControlSwipe: AnyObject {
-    func goToNextPage()
-    func goToPreviousPage()
+    func go(direction: UIPageViewController.NavigationDirection)
 }
 
 class TabViewController: UIViewController {
     @IBOutlet weak var webView: WKWebView!
-    @IBOutlet weak var left: UIButton!
-    @IBOutlet weak var right: UIButton!
+    
     var page: TabPage?
     weak var delegate: PageControlSwipe?
     
@@ -22,12 +20,22 @@ class TabViewController: UIViewController {
         
         webView.load(request)
     }
-    @IBAction func goRight(_ sender: UIButton) {
-        delegate?.goToNextPage()
+    
+    @IBAction func goToNextPage(_ sender: UISwipeGestureRecognizer) {
+        transition(using: sender, direction: .forward)
     }
     
-    @IBAction func goLeft(_ sender: UIButton) {
-        delegate?.goToPreviousPage()
+    @IBAction func goToPreviousPage(_ sender: UISwipeGestureRecognizer) {
+        transition(using: sender, direction: .reverse)
+    }
+    
+    private func transition(using sender: UISwipeGestureRecognizer, direction: UIPageViewController.NavigationDirection) {
+        switch sender.state {
+        case .ended:
+            delegate?.go(direction: direction)
+        default:
+            break
+        }
     }
 }
 

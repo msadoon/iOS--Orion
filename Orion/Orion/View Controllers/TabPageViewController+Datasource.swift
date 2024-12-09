@@ -1,57 +1,10 @@
 import Foundation
 import UIKit
 
-//FIXME: In notes mentiont that separating the data source and delegate is tricky because they are tied together tightly.
-class TabPageViewControllerDataSource: NSObject, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
+class TabPageViewControllerDataSource: NSObject {
     private var storyboard = UIStoryboard(name:StoryboardIds.main.referenceName, bundle: nil)
     private var index = 0
-    
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? { nil }
-    
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? { nil }
-    /**
-    private var previousIndex = 0
-    private var nextIndex = 0
-    
-    // MARK: Datasource
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        guard let swipablePageViewController = pageViewController as? PageControlSwipe else { return nil }
-        
-        return self.viewControllerAtIndex(in: swipablePageViewController, self.currentIndex - 1)
-    }
-    
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        guard let swipablePageViewController = pageViewController as? PageControlSwipe else { return nil }
-        
-        return self.viewControllerAtIndex(in: swipablePageViewController, self.currentIndex + 1)
-    }
-    
-    // MARK: Delegate
-    func pageViewController(_ pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController]) {
-        guard let lastViewController = (pendingViewControllers.last as? TabViewController),
-              let page = lastViewController.page,
-              let indexOfURLValue = TabPageDataProvider.shared.items.firstIndex(where: { $0.id == page.id }) else { return }
-        
-        self.nextIndex = indexOfURLValue
-    }
-
-    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
-        guard finished, completed else { return }
-        
-        guard let lastViewController = (previousViewControllers.last as? TabViewController),
-                let page = lastViewController.page,
-              let indexOfURLValue = TabPageDataProvider.shared.items.firstIndex(where: { $0.id == page.id }) else { return }
-        
-        
-        self.previousIndex = indexOfURLValue
-        
-        guard self.previousIndex != self.nextIndex,
-             self.currentIndex != self.nextIndex else { return }
-        
-        self.currentIndex = self.nextIndex
-    }
-     */
-    // MARK: Helpers
+    // FIXME: Clean up duplicate code, use SwipeDirection enum.
     func page(in pageController: PageControlSwipe, index: Int) -> UIViewController? {
         guard index >= 0, index < TabPageDataProvider.shared.items.count else { return nil }
         

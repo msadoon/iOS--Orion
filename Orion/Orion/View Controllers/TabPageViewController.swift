@@ -2,11 +2,10 @@ import UIKit
 import WebKit
 
 class TabPageViewController: UIPageViewController {
-    var datasource = TabPageViewControllerDataSource()
+    private var datasource = TabPageViewControllerDataSource()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setupPagingGestures()
         self.setupInitialViewControllers()
     }
     
@@ -17,24 +16,25 @@ class TabPageViewController: UIPageViewController {
         
         self.setViewControllers([initialTabViewController], direction: .forward, animated: true)
     }
-    
-    private func setupPagingGestures() { }
 }
 
 extension TabPageViewController: PageControlSwipe {
-    func goToNextPage() {
-        guard let pagingDatasource = self.dataSource as? TabPageViewControllerDataSource else { return }
+    func go(direction: UIPageViewController.NavigationDirection) {
+        var page: UIViewController
         
-        guard let page = pagingDatasource.nextPage(in: self) else { return }
+        switch direction {
+        case .forward:
+            guard let navigablePage = self.datasource.nextPage(in: self) else { return }
+            
+            page = navigablePage
+        case .reverse:
+            guard let navigablePage = self.datasource.previousPage(in: self) else { return }
+            
+            page = navigablePage
+        @unknown default:
+            return
+        }
         
-        setViewControllers([page], direction: .forward, animated: true, completion: nil)
-    }
-
-    func goToPreviousPage() {
-        guard let pagingDatasource = self.dataSource as? TabPageViewControllerDataSource else { return }
-        
-        guard let page = pagingDatasource.previousPage(in: self) else { return }
-        
-        setViewControllers([page], direction: .reverse, animated: true, completion: nil)
+        setViewControllers([page], direction: direction, animated: true, completion: nil)
     }
 }
