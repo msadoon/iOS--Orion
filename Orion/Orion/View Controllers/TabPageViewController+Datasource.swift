@@ -42,15 +42,6 @@ class TabPageViewControllerDataSource: NSObject, UIPageViewControllerDataSource,
         self.currentIndex = self.nextIndex
     }
     
-    // MARK: Paging control
-    func presentationCount(for pageViewController: UIPageViewController) -> Int {
-        TabPageDataProvider.shared.items.count
-    }
-    
-    func presentationIndex(for pageViewController: UIPageViewController) -> Int {
-        self.currentIndex
-    }
-    
     // MARK: Helpers
     func viewControllerAtIndex(_ index: Int) -> UIViewController? {
         guard index >= 0, index < TabPageDataProvider.shared.items.count else { return nil }

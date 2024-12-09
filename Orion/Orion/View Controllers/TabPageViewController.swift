@@ -6,7 +6,7 @@ class TabPageViewController: UIPageViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.setupPagingGestures()
         self.setupInitialViewControllers()
     }
     
@@ -16,5 +16,9 @@ class TabPageViewController: UIPageViewController {
         guard let initialTabViewController = self.datasource.viewControllerAtIndex(.zero) else { return }
         
         self.setViewControllers([initialTabViewController], direction: .forward, animated: true)
+    }
+    
+    private func setupPagingGestures() {
+        print(self.view.gestureRecognizers)
     }
 }
