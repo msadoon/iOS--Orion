@@ -12,41 +12,58 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="TabViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="TabViewController" customModule="Orion" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" userLabel="ContentView">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <wkWebView contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aII-vW-x0g">
-                                <rect key="frame" x="0.0" y="59" width="393" height="715"/>
-                                <wkWebViewConfiguration key="configuration">
-                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                                    <wkPreferences key="preferences"/>
-                                </wkWebViewConfiguration>
-                            </wkWebView>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T1z-8T-Eoy">
-                                <rect key="frame" x="20" y="779" width="353" height="34"/>
-                                <gestureRecognizers/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="VHe-5g-xWM" appends="YES" id="o6O-xo-qHf"/>
-                                    <outletCollection property="gestureRecognizers" destination="OSa-Qd-oe3" appends="YES" id="5VK-F6-wu0"/>
-                                </connections>
-                            </textField>
+                            <view contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="1Xz-1A-Fo6" userLabel="ContentView">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <subviews>
+                                    <wkWebView contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aII-vW-x0g">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="709"/>
+                                        <wkWebViewConfiguration key="configuration">
+                                            <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                            <wkPreferences key="preferences"/>
+                                        </wkWebViewConfiguration>
+                                    </wkWebView>
+                                    <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T1z-8T-Eoy">
+                                        <rect key="frame" x="20" y="714" width="353" height="40"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="Mxk-PB-NRo"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="URL" returnKeyType="go" textContentType="url"/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="VHe-5g-xWM" appends="YES" id="o6O-xo-qHf"/>
+                                            <outletCollection property="gestureRecognizers" destination="OSa-Qd-oe3" appends="YES" id="5VK-F6-wu0"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="T1z-8T-Eoy" secondAttribute="bottom" constant="5" id="DVg-dh-LFI"/>
+                                    <constraint firstItem="T1z-8T-Eoy" firstAttribute="leading" secondItem="1Xz-1A-Fo6" secondAttribute="leading" constant="20" id="Y7E-Hj-tZB"/>
+                                    <constraint firstItem="aII-vW-x0g" firstAttribute="top" secondItem="1Xz-1A-Fo6" secondAttribute="top" id="lba-yj-lLE"/>
+                                    <constraint firstAttribute="trailing" secondItem="aII-vW-x0g" secondAttribute="trailing" id="nHC-wq-f3x"/>
+                                    <constraint firstItem="T1z-8T-Eoy" firstAttribute="top" secondItem="aII-vW-x0g" secondAttribute="bottom" constant="5" id="rde-r2-9uj"/>
+                                    <constraint firstItem="aII-vW-x0g" firstAttribute="leading" secondItem="1Xz-1A-Fo6" secondAttribute="leading" id="rts-ho-7MD"/>
+                                    <constraint firstAttribute="trailing" secondItem="T1z-8T-Eoy" secondAttribute="trailing" constant="20" id="xpR-ZH-fPL"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBlueColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="T1z-8T-Eoy" secondAttribute="bottom" constant="5" id="LaQ-mT-5gY"/>
-                            <constraint firstItem="aII-vW-x0g" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="OSm-21-M2C"/>
-                            <constraint firstItem="aII-vW-x0g" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Tan-gY-SPT"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="T1z-8T-Eoy" secondAttribute="trailing" constant="20" id="Zia-l9-wBB"/>
-                            <constraint firstItem="aII-vW-x0g" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="aR9-Tt-aVy"/>
-                            <constraint firstItem="T1z-8T-Eoy" firstAttribute="top" secondItem="aII-vW-x0g" secondAttribute="bottom" constant="5" id="fxD-nZ-dvl"/>
-                            <constraint firstItem="T1z-8T-Eoy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="sLt-jh-hAL"/>
+                            <constraint firstItem="1Xz-1A-Fo6" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="1N5-Vc-JBX"/>
+                            <constraint firstItem="1Xz-1A-Fo6" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="cUK-ug-dAe"/>
+                            <constraint firstItem="1Xz-1A-Fo6" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" priority="750" id="gee-yy-tjW"/>
+                            <constraint firstItem="1Xz-1A-Fo6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="mG7-eP-jeR"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="contentView" destination="1Xz-1A-Fo6" id="sQe-zi-jwK"/>
+                        <outlet property="urlTextField" destination="T1z-8T-Eoy" id="hXc-Jd-0fz"/>
                         <outlet property="webView" destination="aII-vW-x0g" id="KM3-IF-Dib"/>
                     </connections>
                 </viewController>
@@ -97,6 +114,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
