@@ -1,3 +1,5 @@
+import UIKit
+
 enum StoryboardIds: String {
     case main
     
@@ -9,4 +11,13 @@ enum StoryboardIds: String {
 enum SupportedSchemes: String {
     case schemaFragment = "://"
     case https
+}
+
+enum Images: String {
+    case refresh = "arrow.clockwise.circle.fill"
+}
+
+enum Padding: CGFloat {
+    case standard = 20
+    case thin = 10
 }

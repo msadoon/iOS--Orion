@@ -26,9 +26,10 @@
                                             <wkPreferences key="preferences"/>
                                         </wkWebViewConfiguration>
                                     </wkWebView>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="FaM-4B-n5F">
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="FaM-4B-n5F">
                                         <rect key="frame" x="20" y="720" width="353" height="34"/>
-                                        <color key="backgroundColor" red="0.32743631499999998" green="0.32573087550000002" blue="0.83921568629999999" alpha="0.20153061224489796" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.060568459865296728" green="0.14755154639175261" blue="0.054459555117812475" alpha="0.20176977040816327" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="tintColor" red="0.058823529411764705" green="0.14901960784313725" blue="0.054901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" keyboardType="URL" returnKeyType="go" textContentType="url"/>
                                     </textField>
