@@ -5,3 +5,8 @@ enum StoryboardIds: String {
         self.rawValue.capitalized
     }
 }
+
+enum SupportedSchemes: String {
+    case schemaFragment = "://"
+    case https
+}
